@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms — Anzi</title>
+<meta name="description" content="The rules of using Anzi. Plain language, fair terms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F0EBE0;
+    --ink: #0F0F12;
+    --cobalt: #2D3FE7;
+    --hot-pink: #FF4D8F;
+    --mustard: #F2C14E;
+    --jade: #1B8C5A;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; background: var(--bg); }
+  
+  body {
+    font-family: 'Familjen Grotesk', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(15,15,18,0.06) 1px, transparent 0);
+    background-size: 4px 4px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .nav {
+    padding: 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 60px;
+  }
+  
+  .nav-logo {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  
+  .nav-logo .dot { color: var(--hot-pink); }
+  
+  .nav-back {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 8px 14px;
+    border: 2px solid var(--ink);
+    border-radius: 100px;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  
+  .nav-back:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  
+  .page-header {
+    padding-bottom: 40px;
+    margin-bottom: 48px;
+    border-bottom: 2px solid var(--ink);
+  }
+  
+  .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--jade);
+    margin-bottom: 16px;
+  }
+  
+  h1 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+  }
+  
+  h1 em {
+    font-style: italic;
+    color: var(--jade);
+  }
+  
+  .meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+  }
+  
+  .tldr {
+    background: var(--jade);
+    color: var(--bg);
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    box-shadow: 5px 5px 0 var(--mustard);
+    position: relative;
+  }
+  
+  .tldr-label {
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  
+  .tldr h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  
+  .tldr ul { list-style: none; }
+  
+  .tldr li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .tldr li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--bg);
+    font-weight: 700;
+  }
+  
+  .content { padding-bottom: 80px; }
+  
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--ink);
+  }
+  
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  
+  h2 .num {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    color: var(--cobalt);
+    margin-right: 12px;
+  }
+  
+  h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  
+  p strong { font-weight: 600; }
+  p em { font-style: italic; color: var(--cobalt); }
+  
+  ul.content-list { list-style: none; margin-bottom: 16px; }
+  
+  ul.content-list li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  ul.content-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    color: var(--jade);
+    font-size: 12px;
+  }
+  
+  a {
+    color: var(--cobalt);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  
+  a:hover { color: var(--hot-pink); }
+  
+  .contact-block {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 24px;
+    padding: 40px 36px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .contact-block h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--bg);
+  }
+  
+  .contact-block p {
+    color: var(--bg);
+    opacity: 0.85;
+    margin-bottom: 0;
+  }
+  
+  .contact-block a { color: var(--mustard); }
+  
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid rgba(15,15,18,0.2);
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  
+  footer a {
+    text-decoration: none;
+    margin: 0 12px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  
+  footer a:hover { color: var(--hot-pink); }
+  
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    h1 { font-size: 44px; }
+    h2 { font-size: 26px; }
+    .tldr { padding: 20px; }
+    .contact-block { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <nav class="nav">
+    <a href="/" class="nav-logo">anzi<span class="dot">.</span></a>
+    <a href="/" class="nav-back">← Back to anzi.app</a>
+  </nav>
+  
+  <header class="page-header">
+    <div class="kicker">★ Legal · The plain version</div>
+    <h1>Terms of <em>Service</em></h1>
+    <p class="meta">Last updated: 14 May 2026 · Effective: 14 May 2026</p>
+  </header>
+  
+  <div class="tldr">
+    <div class="tldr-label">TL;DR</div>
+    <h3>The short version</h3>
+    <ul>
+      <li>By using Anzi, you agree to these rules</li>
+      <li>Don't try to hack, abuse, or misuse the service</li>
+      <li>We provide Anzi "as is" — it's not financial advice</li>
+      <li>You can stop using Anzi anytime; we can suspend abusive accounts</li>
+      <li>If something breaks, our liability is limited</li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    
+    <h2><span class="num">i.</span>Acceptance of these terms</h2>
+    <p>
+      By joining the Anzi waitlist, downloading the Anzi app, or otherwise using any part of our service (the "Service"), you agree to these Terms of Service ("Terms"). If you don't agree, please don't use the Service.
+    </p>
+    <p>
+      These Terms form a legal agreement between you ("you") and Anzi ("we," "us"), operated as an independent project in Italy.
+    </p>
+    
+    <h2><span class="num">ii.</span>What Anzi is (and isn't)</h2>
+    <p>
+      Anzi is a personal reflection tool for tracking and rating purchases. It's designed to help you think more intentionally about how you spend money.
+    </p>
+    <p>
+      <strong>Anzi is NOT:</strong>
+    </p>
+    <ul class="content-list">
+      <li>A financial advisor or financial planning service</li>
+      <li>A bank or financial institution</li>
+      <li>A budgeting or accounting tool for tax or business use</li>
+      <li>A guarantee of any specific outcome (saving money, reducing spending, etc.)</li>
+    </ul>
+    <p>
+      Anything you learn or decide based on using Anzi is <em>your own responsibility</em>. We don't provide financial, tax, or investment advice.
+    </p>
+    
+    <h2><span class="num">iii.</span>Your account and conduct</h2>
+    <p>
+      When you sign up for Anzi (waitlist or app):
+    </p>
+    <ul class="content-list">
+      <li>You must be at least 16 years old</li>
+      <li>You must provide accurate contact information</li>
+      <li>You agree not to abuse, hack, scrape, or attempt to disrupt the Service</li>
+      <li>You agree not to impersonate others or create fake accounts</li>
+      <li>You're responsible for keeping your device secure</li>
+    </ul>
+    <p>
+      We may suspend or terminate accounts that violate these rules, with or without notice.
+    </p>
+    
+    <h2><span class="num">iv.</span>Payments and refunds</h2>
+    <p>
+      If you purchase Anzi (one-time, subscription, or lifetime access):
+    </p>
+    <ul class="content-list">
+      <li>Payments are processed through the Apple App Store or Google Play Store — their terms also apply</li>
+      <li>Prices are listed in EUR or your local currency at checkout</li>
+      <li>Refunds are handled by Apple or Google according to their refund policies</li>
+      <li>For founding-member lifetime access: this is a one-time payment for ongoing app access. We commit to maintaining the app for at least 3 years from your purchase; beyond that, we'll provide reasonable notice if the project ends</li>
+    </ul>
+    <p>
+      Under EU consumer law, you have a 14-day right of withdrawal for digital purchases <em>unless</em> you explicitly agree to immediate access (which most app store purchases do). Check the App Store / Play Store refund policies for your specific case.
+    </p>
+    
+    <h2><span class="num">v.</span>Intellectual property</h2>
+    <p>
+      Anzi, including the app, website, brand, design, and content, is our intellectual property. You're granted a personal, non-exclusive, non-transferable license to use Anzi for your own personal use.
+    </p>
+    <p>
+      You can't:
+    </p>
+    <ul class="content-list">
+      <li>Copy, modify, or redistribute the app</li>
+      <li>Reverse-engineer or extract source code</li>
+      <li>Use our brand, logo, or design without permission</li>
+      <li>Build a competing product based on our code or designs</li>
+    </ul>
+    <p>
+      Any purchase data, ratings, or notes you create remain <em>yours</em>. You own your data.
+    </p>
+    
+    <h2><span class="num">vi.</span>Privacy</h2>
+    <p>
+      Your privacy matters. Our <a href="/privacy.html">Privacy Policy</a> explains what we collect, how we use it, and your rights under GDPR.
+    </p>
+    
+    <h2><span class="num">vii.</span>Service availability</h2>
+    <p>
+      We work hard to keep Anzi available and working well, but we can't guarantee 100% uptime. The Service is provided "as is" — we don't warrant that it will be uninterrupted, error-free, or meet your specific expectations.
+    </p>
+    <p>
+      We may modify, suspend, or discontinue parts of the Service at any time. If we end a paid service entirely, we'll provide reasonable advance notice and offer a fair resolution.
+    </p>
+    
+    <h2><span class="num">viii.</span>Limitation of liability</h2>
+    <p>
+      To the maximum extent permitted by law, Anzi and its operators are not liable for:
+    </p>
+    <ul class="content-list">
+      <li>Indirect, incidental, or consequential damages</li>
+      <li>Loss of data, profits, or business opportunities</li>
+      <li>Financial decisions you make based on using Anzi</li>
+      <li>Issues caused by third-party services (App Store, hosting, email providers)</li>
+    </ul>
+    <p>
+      Our total liability for any claim related to the Service is limited to what you paid us in the 12 months before the claim, or €50 — whichever is greater. This doesn't limit liability that can't be excluded by EU consumer protection law.
+    </p>
+    
+    <h2><span class="num">ix.</span>Termination</h2>
+    <p>
+      You can stop using Anzi anytime. To delete your data, email us at <a href="mailto:hello@anzi.app">hello@anzi.app</a>.
+    </p>
+    <p>
+      We may terminate access if you violate these Terms or abuse the Service. We'll typically give notice unless the violation is serious or urgent.
+    </p>
+    
+    <h2><span class="num">x.</span>Changes to these terms</h2>
+    <p>
+      We may update these Terms occasionally. If we make material changes that affect your rights, we'll notify subscribers by email and update the date at the top of this page. Continued use after changes means you accept the updated Terms.
+    </p>
+    
+    <h2><span class="num">xi.</span>Governing law and disputes</h2>
+    <p>
+      These Terms are governed by the laws of Italy. Any disputes will be resolved in the courts of Italy, unless EU consumer protection law gives you the right to sue in your home country.
+    </p>
+    <p>
+      Before formal legal action, please email us at <a href="mailto:hello@anzi.app">hello@anzi.app</a> — we'd much rather work things out directly with you.
+    </p>
+    
+  </div>
+  
+  <div class="contact-block">
+    <h3>Questions about these terms?</h3>
+    <p>
+      Email <a href="mailto:hello@anzi.app">hello@anzi.app</a> — happy to explain anything.
+    </p>
+  </div>
+  
+  <footer>
+    <a href="/">Home</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:hello@anzi.app">Contact</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
