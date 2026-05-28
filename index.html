@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/anzi-icon-180.png">
-
-<!-- Open Graph / Twitter Card -->
-<meta property="og:title" content="Anzi — Actually, was it worth it?">
-<meta property="og:description" content="A 5-second daily check-in with your money.">
-<meta property="og:image" content="https://anzi.app/anzi-og-image.png">
-<meta property="og:url" content="https://anzi.app">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://anzi.app/anzi-og-image.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anzi — anzi.app</title>
@@ -1161,7 +1149,6 @@
       
       <div class="form-wrap animate animate-4" id="waitlist">
         <form class="form-row" id="form1">
-          <form class="form-row" action="https://assets.mailerlite.com/jsonp/2342016/forms/187462158148175095/subscribe" method="POST">
           <input type="email" placeholder="you@email.com" required>
           <button type="submit">Join waitlist →</button>
         </form>
@@ -1323,10 +1310,9 @@
   <!-- FOOTER -->
   <footer>
     <div>
-<a href="/privacy.html">Privacy</a>
-<a href="/terms.html">Terms</a>
-<a href="mailto:hello@anzi.app">Contact</a>
-<a href="https://x.com/AnziOfficial00">Twitter</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+      <a href="#">Twitter</a>
     </div>
     <div class="right">
       Made with care in Italy · 2026
@@ -1355,15 +1341,46 @@
     }, 2400);
   }
   
-  // Forms
+  // Forms → MailerLite
+  const MAILERLITE_URL = 'https://assets.mailerlite.com/jsonp/2342016/forms/188006373467883064/subscribe';
+
   document.querySelectorAll('form').forEach((form, i) => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
+      const input = this.querySelector('input[type="email"]');
+      const button = this.querySelector('button');
       const successId = i === 0 ? 'success1' : 'success2';
       const success = document.getElementById(successId);
-      if (success) success.classList.add('show');
-      const input = this.querySelector('input');
-      if (input) input.value = '';
+      const email = input ? input.value.trim() : '';
+      if (!email) return;
+
+      const originalBtnHTML = button.innerHTML;
+      button.innerHTML = 'Sending…';
+      button.disabled = true;
+
+      try {
+        const data = new FormData();
+        data.append('fields[email]', email);
+        data.append('ml-submit', '1');
+        data.append('anticsrf', 'true');
+
+        await fetch(MAILERLITE_URL, {
+          method: 'POST',
+          body: data,
+          mode: 'no-cors'
+        });
+
+        if (success) success.classList.add('show');
+        input.value = '';
+      } catch (err) {
+        if (success) {
+          success.textContent = '⚠ Something went wrong. Try again?';
+          success.classList.add('show');
+        }
+      } finally {
+        button.innerHTML = originalBtnHTML;
+        button.disabled = false;
+      }
     });
   });
 </script>
